@@ -135,9 +135,8 @@ if __name__ == "__main__":
     parser.add_argument('--csv_name', default='train.csv')
     args = parser.parse_args()
 
-    os.makedirs(args.add_argument, exist_ok=True)
     os.makedirs(args.output_path, exist_ok=True)
-    os.makedirs(argspreprocessed_data_path, exit_ok=True)
+    os.makedirs(args.preprocessed_data_path, exit_ok=True)
     os.makedirs(args.log_path, exist_ok=True)
 
     if args.running_parten == "both":
