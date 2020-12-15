@@ -129,7 +129,7 @@ if __name__ == "__main__":
     parser.add_argument('--input_path', default='/kqi/input/training')
     parser.add_argument('--output_path', default='/kqi/output/demo')
     parser.add_argument('--preprocessed_data_path', default='/kqi/output/preprocessed_data')
-    parser.add_argument('--log_path', default='/kqi/output/demo/log')
+    parser.add_argument('--log_path', default='/kqi/output')
     parser.add_argument('--csv_name', default='train.csv')
     args = parser.parse_args()
 
