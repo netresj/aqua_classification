@@ -46,7 +46,6 @@ def preprocess(args):
         img = imread(file_path)
         img = resize(img, (400, 400))
         imsave(f"{args.preprocessed_data_path}/{file_name}.png", img, check_contrast=False)
-        break
     df_train.to_csv(f"{args.preprocessed_data_path}/train.csv", index=False)
 
     # preprocessing for test data
@@ -56,7 +55,6 @@ def preprocess(args):
         img = imread(file_path)
         img = resize(img, (400, 400))
         imsave(f"{args.preprocessed_data_path}/{file_name}.png", img, check_contrast=False)
-        break
     df_test.to_csv(f"{args.preprocessed_data_path}/test.csv", index=False)
 
 def train(args):
