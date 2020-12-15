@@ -115,12 +115,14 @@ def train(args):
         log_dir=args.log_path,
         histogram_freq=1
     )
+    callbacks = [mc, tb]
 
     # fit
     datagen.fit(X_train)
     model.fit_generator(datagen.flow(X_train, y_train, batch_size=32),
                         steps_per_epoch=len(X_train) / 32, epochs=100,
-                        validation_data=(X_test, y_test))
+                        validation_data=(X_test, y_test), 
+                        callbacks=callbacks)
 
 if __name__ == "__main__":
     # コマンドライン引数の設定
