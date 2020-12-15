@@ -136,7 +136,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     os.makedirs(args.output_path, exist_ok=True)
-    os.makedirs(args.preprocessed_data_path, exit_ok=True)
+    os.makedirs(args.preprocessed_data_path, exist_ok=True)
     os.makedirs(args.log_path, exist_ok=True)
 
     if args.running_parten == "both":
