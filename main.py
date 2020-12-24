@@ -24,8 +24,8 @@ import glob
 
 def preprocess(args):
     # read csv
-    print(glob.glob(f"{args.input_path}/*/{args.csv_name}"))
-    csv_path = glob.glob(f"{args.input_path}/*/{args.csv_name}")[0]
+    print(glob.glob(f"{args.input_path}/**/{args.csv_name}"))
+    csv_path = glob.glob(f"{args.input_path}/**/{args.csv_name}")[0]
     df = pd.read_csv(csv_path)
 
     # create label data
@@ -42,7 +42,7 @@ def preprocess(args):
     # preprocessing for train data
     for idx in tqdm(range(df_train.shape[0])):
         file_name = df_train["image_id"][idx]
-        file_path = glob.glob(f"{args.input_path}/*/{file_name}.jpg")[0]
+        file_path = glob.glob(f"{args.input_path}/**/{file_name}.jpg")[0]
         img = imread(file_path)
         img = resize(img, (400, 400))
         imsave(f"{args.preprocessed_data_path}/{file_name}.png", img, check_contrast=False)
@@ -51,7 +51,7 @@ def preprocess(args):
     # preprocessing for test data
     for idx in tqdm(range(df_test.shape[0])):
         file_name = df_test["image_id"][idx]
-        file_path = glob.glob(f"{args.input_path}/*/{file_name}.jpg")[0]
+        file_path = glob.glob(f"{args.input_path}/**/{file_name}.jpg")[0]
         img = imread(file_path)
         img = resize(img, (400, 400))
         imsave(f"{args.preprocessed_data_path}/{file_name}.png", img, check_contrast=False)
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     # コマンドライン引数の設定
     parser = argparse.ArgumentParser(description='aqualium demo file')
     parser.add_argument('running_parten', type=str, help='both | train | preprocess')
-    parser.add_argument('--input_path', default='/kqi/input/training')
+    parser.add_argument('--input_path', default='/kqi/input')
     parser.add_argument('--output_path', default='/kqi/output/demo')
     parser.add_argument('--preprocessed_data_path', default='/kqi/output/preprocessed_data')
     parser.add_argument('--log_path', default='/kqi/output')
