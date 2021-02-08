@@ -140,3 +140,7 @@ if __name__ == "__main__":
     if args.running_parten == "both":
         preprocess(args)
         train(args)
+    elif args.running_parten == "preprocess":
+        preprocess(args)
+    elif args.running_parten == "train":
+        train(args)
